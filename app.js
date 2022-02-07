@@ -1,35 +1,54 @@
-// document.get ElementById()
+let val;
 
-// console.log(document.getElementById("task-title"));
+const list = document.querySelector("ul.collection");
+const listItem = document.querySelector("li.collection-item:first-child");
 
-// // Get Things From the Element
-// console.log(document.getElementById("task-title").id);
-// console.log(document.getElementById("task-title").className);
+val = listItem;
+val = list;
 
-// const taskTitle = document.getElementById("task-title");
+// Get child nodes
+val = list.childNodes;
+val = list.childNodes[1];
+val = list.childNodes[0].nodeName;
+val = list.childNodes[3].nodeType;
 
-// // Change styling
-// taskTitle.style.background = "#333";
-// taskTitle.style.color = "#fff";
-// taskTitle.style.padding = "5px";
-// // taskTitle.style.display = "none";
+// 1 - Element
+// 2 - Attribute (deprecated)
+// 3 - Text node
+// 8 - Comment
+// 9 - Document itself
+// 10 - Doctype
 
-// // Change content
-// taskTitle.textContent = "Task List";
-// taskTitle.innerText = "My Tasks";
-// taskTitle.innerHTML = '<span style="color:red">TaskList</span>';
+// Get children element nodes
+val = list.children;
+val = list.children[1];
+list.children[1].textContent = "Hello";
+// Children of children
+list.children[3].children[0].id = "test-link";
+val = list.children[3].children[0];
 
-// document.querySelector()
+// First child
+val = list.firstChild;
+val = list.firstElementChild;
 
-console.log(document.querySelector("#task-title"));
-console.log(document.querySelector(".card-title"));
-console.log(document.querySelector("h5"));
+// Last child
+val = list.lastChild;
+val = list.lastElementChild;
 
-document.querySelector("li").style.color = "red";
-document.querySelector("ul li").style.color = "blue";
+// Count child elements
+val = list.childElementCount;
 
-document.querySelector("li:last-child").style.color = "red";
-document.querySelector("li:nth-child(3)").style.color = "yellow";
-document.querySelector("li:nth-child(4)").textContent = "Hello World";
-document.querySelector("li:nth-child(odd)").style.background = "#ccc";
-document.querySelector("li:nth-child(even)").style.background = "#f4f4f4";
+// Get parent node
+val = listItem.parentNode;
+val = listItem.parentElement;
+val = listItem.parentElement.parentElement;
+
+// Get next sibling
+val = listItem.nextSibling;
+val = listItem.nextElementSibling.nextElementSibling.previousElementSibling;
+
+// Get prev sibling
+val = listItem.previousSibling;
+val = listItem.previousElementSibling;
+
+console.log(val);
