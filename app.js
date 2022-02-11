@@ -1,40 +1,36 @@
-const form = document.querySelector("form");
-const taskInput = document.getElementById("task");
-const heading = document.querySelector("h5");
-const select = document.querySelector(`select`);
+// EVENT BUBBLING
 
-// Clear Input
-taskInput.value = "";
+// document.querySelector(".card-title").addEventListener("click", function () {
+//   console.log("card title");
+// });
 
-// form.addEventListener("submit", runEvent);
+// document.querySelector(".card-content").addEventListener("click", function () {
+//   console.log("card content");
+// });
 
-// Keydown
-// taskInput.addEventListener("keydown", runEvent);
-// Keyup
-// taskInput.addEventListener("keyup", runEvent);
-// Keypress
-// taskInput.addEventListener("keypress", runEvent);
-// Focus
-// taskInput.addEventListener("focus", runEvent);
-// Blur
-// taskInput.addEventListener("blur", runEvent);
-//Cut
-// taskInput.addEventListener("cut", runEvent);
-// Paste
-// taskInput.addEventListener("paste", runEvent);
-// input
-// taskInput.addEventListener("input", runEvent);
-// Change
-select.addEventListener("change", runEvent);
+// document.querySelector(".card").addEventListener("click", function () {
+//   console.log("card");
+// });
 
-function runEvent(e) {
-  console.log("EVENT TYPE: ${e.type}");
+// document.querySelector(".col").addEventListener("click", function () {
+//   console.log("col");
+// });
 
-  // console.log(e.target.value);
-  // heading.innerText = e.target.value;
+// EVENT DELGATION
 
-  // Get input value
-  // console.log(taskInput.value);
+// const delItem = document.querySelector(".delete-item");
 
-  // e.preventDefault();
+// delItem.addEventListener("click", deleteItem);
+
+document.body.addEventListener("click", deleteItem);
+
+function deleteItem(e) {
+  // if (e.target.parentElement.className === "delete-item secondary-content") {
+  //   console.log("delete item");
+  // }
+
+  if (e.target.parentElement.classList.contains("delete-item")) {
+    console.log("delete item");
+    e.target.parentElement.parentElement.remove();
+  }
 }
